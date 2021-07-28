@@ -7,6 +7,35 @@
     <title>Document</title>
 </head>
 <body>
+    <template id="my-template">
+            <style>
+                .card-container {
+                    width: 350px;
+                    background-color: brown;
+                    border: 1px solid #222;
+                    text-align: center;
+                    padding: 20px;
+                    margin :20px;
+                }
+            </style>
+        <div class="card-container">
+        <!-- <h1>Title</h1>
+        <p>lorem lorem Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo, exercitationem voluptas. Minus temporibus, consectetur consequatur sed recusandae rerum? Voluptatum esse eum quae suscipit consequatur omnis minus maxime numquam sapiente nesciunt?</p> -->
+        <slot name="heading"></slot>
+        <slot name = "content"></slot>
+        <button>Read More</button>
+        </div>
+    </template>
+
+    <my-card>
+        <h1 slot="heading">My Title</h1>
+        <p slot="content">hi this my content</p>
+    </my-card>
+    <my-card heading-color="#f50" bg-color="#700">
+        <h1 slot="heading">Ehab Qino</h1>
+        <p slot="content">hi this Ehab Qino content</p> 
+    </my-card>
+    <my-card></my-card>
     <my-card></my-card>
     <script src="app5.js"></script>
 </body>
