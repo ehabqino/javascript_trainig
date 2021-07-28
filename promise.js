@@ -87,7 +87,22 @@ function myPromise3(){
 }
 
 //call all promises using promise.all
-Promise.all([myPromise1(),myPromise2(),myPromise3()]).then((res)=>{
+Promise.all([
+    myPromise1(),
+    myPromise2(),
+    myPromise3()
+]).then((res)=>{
+    console.log(res);
+}).catch((err)=> {
+    console.log('Error : ', err);
+});
+
+// call the promise with the less time to execute in our example promise3
+Promise.race([
+    myPromise1(),
+    myPromise2(),
+    myPromise3()
+]).then((res)=>{
     console.log(res);
 }).catch((err)=> {
     console.log('Error : ', err);
