@@ -22,6 +22,7 @@ myPromise.then((res)=>{
 // });
 */
 
+/*
 function myPromise(){
     return new Promise((resolve,reject)=>{
         setTimeout(()=>{
@@ -53,3 +54,39 @@ myPromise().then((res)=>{
 }).catch((err)=>{
     console.log("Error",err);
 })
+*/
+
+function myPromise1(){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve(10);
+            //reject(500);
+        },1000)
+
+    });
+}
+
+function myPromise2(){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve(10);
+            //reject(500);
+        },1500)
+
+    });
+}
+
+function myPromise3(){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve(30);
+            //reject(500);
+        },500)
+
+    });
+}
+
+//call all promises using promise.all
+Promise.all([myPromise1(),myPromise2(),myPromise3()]).then((res)=>{
+    console.log(res);
+});
