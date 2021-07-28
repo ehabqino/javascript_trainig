@@ -69,8 +69,8 @@ function myPromise1(){
 function myPromise2(){
     return new Promise((resolve,reject)=>{
         setTimeout(()=>{
-            resolve(10);
-            //reject(500);
+            //resolve(10);
+            reject(10);
         },1500)
 
     });
@@ -99,6 +99,16 @@ Promise.all([
 
 // call the promise with the less time to execute in our example promise3
 Promise.race([
+    myPromise1(),
+    myPromise2(),
+    myPromise3()
+]).then((res)=>{
+    console.log(res);
+}).catch((err)=> {
+    console.log('Error : ', err);
+});
+
+Promise.allSettled([
     myPromise1(),
     myPromise2(),
     myPromise3()
