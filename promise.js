@@ -32,10 +32,20 @@ function myPromise(){
     });
 }
 
+// myPromise().then((res)=>{
+//     console.log(res);
+//     console.log(myPromise());
+// }).catch((err)=>{
+//     console.log("Error",err);
+//     console.log(myPromise());
+// })
+
+///user more than one then with promise
 myPromise().then((res)=>{
     console.log(res);
-    console.log(myPromise());
+    return res*2;
+}).then((res)=>{
+    console.log(res);
 }).catch((err)=>{
     console.log("Error",err);
-    console.log(myPromise());
 })
