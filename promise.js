@@ -43,7 +43,11 @@ function myPromise(){
 ///user more than one then with promise
 myPromise().then((res)=>{
     console.log(res);
-    return res*2;
+    //return res*2;
+    return new Promise((resolve,reject)=>{
+        //resolve(res+50);
+        reject("Errooorrrr");
+    })
 }).then((res)=>{
     console.log(res);
 }).catch((err)=>{
