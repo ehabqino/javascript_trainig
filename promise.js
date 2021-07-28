@@ -89,4 +89,6 @@ function myPromise3(){
 //call all promises using promise.all
 Promise.all([myPromise1(),myPromise2(),myPromise3()]).then((res)=>{
     console.log(res);
+}).catch((err)=> {
+    console.log('Error : ', err);
 });
