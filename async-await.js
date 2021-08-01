@@ -38,4 +38,32 @@ async function getMyPromise(){
         console.log(err)
     }
 }
-getMyPromise();
+//getMyPromise();
+
+//Fetch Example
+/*
+function getPostsFromApi(){
+    fetch("https://jsonplaceholder.typicode.com/posts").then((res)=>{
+        //console.log(res);
+        return res.json()
+    }).then((posts)=>{
+        console.log(posts);
+        render(posts);
+    });
+}
+*/
+async function getPostsFromApi(){
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+    const posts = await res.json();
+    render(posts);
+}
+getPostsFromApi();
+
+function render(posts){
+    let output = '';
+    posts.forEach(element => {
+        output += `<h1>${element.title}</h1>` ;
+
+    });
+    document.body.innerHTML = output;
+}
